@@ -11,14 +11,15 @@ public class App {
 
 
         public static void main(String[] args) {
-            // Создаем объект RestTemplate
+            // Создаем объект RestTemplate и наши URL для запросов
             RestTemplate restTemplate = new RestTemplate();
+            String url1 = "http://94.198.50.185:7081/api/users";
+            String url2 = "http://94.198.50.185:7081/api/users/3";
 
             // Шаг 1: Получение списка всех пользователей
             ResponseEntity<String> response1 = restTemplate.getForEntity("http://94.198.50.185:7081/api/users", String.class);
             String sessionId = response1.getHeaders().getFirst(HttpHeaders.SET_COOKIE);
-            String url1 = "http://94.198.50.185:7081/api/users";
-            String url2 = "http://94.198.50.185:7081/api/users/3";
+
 
 
             // Шаг 3: Сохранение пользователя
